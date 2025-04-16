@@ -175,11 +175,11 @@ hr {
   }
 }
 .game-container {
-
   transform: scale(1.2); /* 将标题放大 1.5 倍 */
   transform-origin: center; /* 缩放基准点为中心 */
-  margin-top: 40px;
+  margin-top: 0;
   position: relative;
+  top: 150px;
   padding: 15px;
   cursor: default;
   -webkit-touch-callout: none;
