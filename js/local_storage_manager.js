@@ -19,8 +19,11 @@ window.fakeStorage = {
 };
 
 function LocalStorageManager() {
-  this.bestScoreKey     = "bestScore";
-  this.gameStateKey     = "gameState";
+  this.bestScoreKey = "bestScore";
+  this.gameStateKey = "gameState";
+  this.gameHistoryKey = "gameHistory";
+  this.scalePreferenceKey = "scalePreference";
+  this.themePreferenceKey = "themePreference";
 
   var supported = this.localStorageSupported();
   this.storage = supported ? window.localStorage : window.fakeStorage;
@@ -60,4 +63,37 @@ LocalStorageManager.prototype.setGameState = function (gameState) {
 
 LocalStorageManager.prototype.clearGameState = function () {
   this.storage.removeItem(this.gameStateKey);
+};
+
+// Game history getters/setters for undo functionality
+LocalStorageManager.prototype.getGameHistory = function () {
+  var historyJSON = this.storage.getItem(this.gameHistoryKey);
+  return historyJSON ? JSON.parse(historyJSON) : [];
+};
+
+LocalStorageManager.prototype.setGameHistory = function (gameHistory) {
+  this.storage.setItem(this.gameHistoryKey, JSON.stringify(gameHistory));
+};
+
+LocalStorageManager.prototype.clearGameHistory = function () {
+  this.storage.removeItem(this.gameHistoryKey);
+};
+
+// Scale preference getters/setters
+LocalStorageManager.prototype.getScalePreference = function () {
+  var scale = this.storage.getItem(this.scalePreferenceKey);
+  return scale ? parseFloat(scale) : 1; // Default scale is 1
+};
+
+LocalStorageManager.prototype.setScalePreference = function (scale) {
+  this.storage.setItem(this.scalePreferenceKey, scale);
+};
+
+// Theme preference getters/setters
+LocalStorageManager.prototype.getThemePreference = function () {
+  return this.storage.getItem(this.themePreferenceKey) || "default"; // Default theme
+};
+
+LocalStorageManager.prototype.setThemePreference = function (theme) {
+  this.storage.setItem(this.themePreferenceKey, theme);
 };

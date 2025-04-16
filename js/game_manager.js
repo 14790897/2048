@@ -19,6 +19,7 @@ function GameManager(size, InputManager, Actuator, StorageManager) {
 // Restart the game
 GameManager.prototype.restart = function () {
   this.storageManager.clearGameState();
+  this.storageManager.clearGameHistory(); // Also clear saved history
   this.actuator.continueGame(); // Clear the game won/lost message
   this.stateHistory = []; // Clear undo history
   this.setup();
@@ -38,6 +39,7 @@ GameManager.prototype.isGameTerminated = function () {
 // Set up the game
 GameManager.prototype.setup = function () {
   var previousState = this.storageManager.getGameState();
+  var savedHistory = this.storageManager.getGameHistory();
 
   // Reload the game from a previous game if present
   if (previousState) {
@@ -46,12 +48,18 @@ GameManager.prototype.setup = function () {
     this.over = previousState.over;
     this.won = previousState.won;
     this.keepPlaying = previousState.keepPlaying;
+
+    // Load saved history if available
+    if (savedHistory && savedHistory.length > 0) {
+      this.stateHistory = savedHistory;
+    }
   } else {
     this.grid = new Grid(this.size);
     this.score = 0;
     this.over = false;
     this.won = false;
     this.keepPlaying = false;
+    this.stateHistory = []; // Reset history
 
     // Add the initial tiles
     this.addStartTiles();
@@ -290,6 +298,9 @@ GameManager.prototype.saveState = function () {
   if (this.stateHistory.length > this.maxHistory) {
     this.stateHistory.shift(); // Remove oldest state if we exceed max history
   }
+
+  // Save history to local storage
+  this.storageManager.setGameHistory(this.stateHistory);
 };
 
 // Undo the last move
