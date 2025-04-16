@@ -181,6 +181,7 @@ hr {
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
+    user-select: none;
 
     -ms-touch-action: none;
     touch-action: none;
@@ -192,6 +193,9 @@ hr {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
+    transform: scale(1);
+    transform-origin: center center;
+    transition: transform 0.3s ease;
 
     .game-message {
       display: none;
@@ -453,6 +457,45 @@ hr {
 
 .above-game {
   @include clearfix;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+
+  .scale-controls {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+
+    span {
+      font-size: 16px;
+      color: $text-color;
+      margin-right: 5px;
+    }
+
+    .scale-button {
+      display: inline-block;
+      width: 30px;
+      height: 30px;
+      line-height: 30px;
+      text-align: center;
+      background: #e0e0e0;
+      color: $text-color;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: all 0.2s ease;
+
+      &:hover {
+        background: #d0d0d0;
+      }
+
+      &.active {
+        background: #f57c00;
+        color: white;
+      }
+    }
+  }
 }
 
 .game-intro {
@@ -510,20 +553,39 @@ hr {
     margin-bottom: 10px;
   }
 
-  // Show intro and restart button side by side
-  .game-intro {
-    width: 55%;
-    display: block;
-    box-sizing: border-box;
-    line-height: 1.65;
+  // 移动设备上的按钮和控制样式
+  .above-game {
+    flex-direction: column;
+    align-items: flex-start;
+
+    .game-buttons {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+
+    .scale-controls {
+      width: 100%;
+      justify-content: center;
+
+      span {
+        font-size: 14px;
+      }
+
+      .scale-button {
+        width: 25px;
+        height: 25px;
+        line-height: 25px;
+        font-size: 12px;
+      }
+    }
   }
 
-  .restart-button {
-    width: 42%;
+  .restart-button, .undo-button {
+    width: 48%;
     padding: 0;
-    display: block;
-    box-sizing: border-box;
-    margin-top: 2px;
+    font-size: 14px;
   }
 
   // Render the game field at the right width

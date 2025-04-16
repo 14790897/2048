@@ -175,6 +175,7 @@ hr {
   }
 }
 .game-container {
+
   transform: scale(1.2); /* 将标题放大 1.5 倍 */
   transform-origin: center; /* 缩放基准点为中心 */
   margin-top: 40px;
