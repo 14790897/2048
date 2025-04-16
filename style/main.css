@@ -241,11 +241,10 @@ hr {
 .grid-container {
   position: absolute;
   z-index: 1;
-  /* top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  margin: 15px; */
+  width: calc(100% - 30px);
+  height: calc(100% - 30px);
+  top: 15px;
+  left: 15px;
   box-sizing: border-box;
 }
 
@@ -276,11 +275,10 @@ hr {
 .tile-container {
   position: absolute;
   z-index: 2;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  margin: 15px;
+  width: calc(100% - 30px);
+  height: calc(100% - 30px);
+  top: 15px;
+  left: 15px;
   box-sizing: border-box;
 }
 
@@ -747,11 +745,10 @@ hr {
   .grid-container {
     position: absolute;
     z-index: 1;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin: 10px;
+    width: calc(100% - 20px);
+    height: calc(100% - 20px);
+    top: 10px;
+    left: 10px;
     box-sizing: border-box;
   }
 
@@ -781,11 +778,10 @@ hr {
   .tile-container {
     position: absolute;
     z-index: 2;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin: 10px;
+    width: calc(100% - 20px);
+    height: calc(100% - 20px);
+    top: 10px;
+    left: 10px;
     box-sizing: border-box;
   }
 
