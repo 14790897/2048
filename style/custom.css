@@ -1,0 +1,258 @@
+/* 柔和的蓝绿色配色方案 */
+
+/* 基本样式 */
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #e0f7fa; /* 柔和的浅蓝绿色背景 */
+  color: #00695c; /* 深蓝绿色文字 */
+  font-family: "Clear Sans", "Helvetica Neue", Arial, sans-serif;
+  font-size: 18px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+body {
+  margin: 0;
+}
+
+/* 容器样式 */
+.container {
+  width: 500px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+  padding: 20px 0;
+  box-sizing: border-box;
+}
+
+/* 标题样式 */
+h1.title {
+  font-size: 60px;
+  font-weight: bold;
+  margin: 0;
+  display: block;
+  float: left;
+  color: #00796b; /* 深蓝绿色标题 */
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+/* 游戏容器样式 */
+.game-container {
+  transform: scale(1); /* 默认缩放比例 */
+  transform-origin: center; /* 缩放基准点为中心 */
+  transition: transform 0.3s ease; /* 添加过渡效果 */
+  margin-top: auto; /* 将游戏容器推到底部 */
+  margin-bottom: 20px; /* 底部留出一些空间 */
+  position: relative;
+  padding: 15px;
+  cursor: default;
+  -webkit-touch-callout: none;
+  -ms-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; /* 添加标准的user-select属性 */
+  -ms-touch-action: none;
+  touch-action: none;
+  background: #80cbc4; /* 柔和的蓝绿色游戏容器背景 */
+  border-radius: 6px;
+  width: 500px;
+  height: 500px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* 添加阴影效果 */
+}
+
+/* 网格单元格样式 */
+.grid-cell {
+  background: rgba(178, 223, 219, 0.5); /* 柔和的浅蓝绿色网格单元格 */
+  border-radius: 6px;
+}
+
+/* 按钮样式 */
+.restart-button, .undo-button {
+  display: inline-block;
+  background: #00897b; /* 蓝绿色按钮 */
+  border-radius: 6px;
+  padding: 0 20px;
+  text-decoration: none;
+  color: white;
+  height: 40px;
+  line-height: 42px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+}
+
+.restart-button:hover, .undo-button:hover {
+  background: #00acc1; /* 悬停时变亮 */
+  transform: translateY(-2px);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* 方块样式 */
+.tile.tile-2 .tile-inner {
+  background: #e0f2f1; /* 最浅的蓝绿色 */
+  color: #004d40; /* 深蓝绿色文字 */
+}
+
+.tile.tile-4 .tile-inner {
+  background: #b2dfdb; /* 浅蓝绿色 */
+  color: #004d40;
+}
+
+.tile.tile-8 .tile-inner {
+  color: #ffffff;
+  background: #80cbc4; /* 中等蓝绿色 */
+}
+
+.tile.tile-16 .tile-inner {
+  color: #ffffff;
+  background: #4db6ac; /* 稍深蓝绿色 */
+}
+
+.tile.tile-32 .tile-inner {
+  color: #ffffff;
+  background: #26a69a; /* 深蓝绿色 */
+}
+
+.tile.tile-64 .tile-inner {
+  color: #ffffff;
+  background: #00897b; /* 更深蓝绿色 */
+}
+
+.tile.tile-128 .tile-inner {
+  color: #ffffff;
+  background: #00796b; /* 非常深的蓝绿色 */
+  box-shadow: 0 0 30px 10px rgba(0, 137, 123, 0.2381),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.14286);
+  font-size: 45px;
+}
+
+.tile.tile-256 .tile-inner {
+  color: #ffffff;
+  background: #00695c; /* 非常非常深的蓝绿色 */
+  box-shadow: 0 0 30px 10px rgba(0, 137, 123, 0.31746),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.19048);
+  font-size: 45px;
+}
+
+.tile.tile-512 .tile-inner {
+  color: #ffffff;
+  background: #004d40; /* 最深的蓝绿色 */
+  box-shadow: 0 0 30px 10px rgba(0, 137, 123, 0.39683),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.2381);
+  font-size: 45px;
+}
+
+.tile.tile-1024 .tile-inner {
+  color: #ffffff;
+  background: #01579b; /* 深蓝色 */
+  box-shadow: 0 0 30px 10px rgba(3, 155, 229, 0.47619),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.28571);
+  font-size: 35px;
+}
+
+.tile.tile-2048 .tile-inner {
+  color: #ffffff;
+  background: #0277bd; /* 亮蓝色 */
+  box-shadow: 0 0 30px 10px rgba(3, 155, 229, 0.55556),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.33333);
+  font-size: 35px;
+}
+
+.tile.tile-super .tile-inner {
+  color: #ffffff;
+  background: #006064; /* 非常深的蓝绿色 */
+  box-shadow: 0 0 30px 10px rgba(0, 96, 100, 0.6),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.3);
+  font-size: 30px;
+}
+
+/* 缩放控制样式 */
+.scale-controls {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 10px;
+}
+
+.scale-controls span {
+  font-size: 16px;
+  color: #00695c;
+  margin-right: 5px;
+}
+
+.scale-button {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  background: #b2dfdb;
+  color: #00695c;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.2s ease;
+}
+
+.scale-button:hover {
+  background: #80cbc4;
+}
+
+.scale-button.active {
+  background: #00897b;
+  color: white;
+}
+
+/* 移动设备样式 */
+@media screen and (max-width: 520px) {
+  html, body {
+    font-size: 15px;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+  }
+
+  h1.title {
+    font-size: 24px;
+  }
+
+  .container {
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+    padding: 10px;
+    height: 100vh;
+  }
+
+  .game-container {
+    margin-top: auto;
+    margin-bottom: 10px;
+    padding: 10px;
+    width: 280px;
+    height: 280px;
+  }
+
+  .scale-controls {
+    width: 100%;
+    justify-content: center;
+    margin-top: 15px;
+  }
+  
+  .scale-button {
+    width: 25px;
+    height: 25px;
+    line-height: 25px;
+    font-size: 12px;
+  }
+}

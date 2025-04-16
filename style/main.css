@@ -531,8 +531,8 @@ hr {
 }
 .tile.tile-32768 .tile-inner {
   color: #ffffff;
-  background: #3949ab;
-  box-shadow: 0 0 30px 10px rgba(57, 73, 171, 0.55556),
+  background: #00acc1; /* 中等蓝绿色 */
+  box-shadow: 0 0 30px 10px rgba(0, 172, 193, 0.55556),
     inset 0 0 0 1px rgba(255, 255, 255, 0.33333);
   font-size: 30px;
 }
@@ -543,8 +543,8 @@ hr {
 }
 .tile.tile-65536 .tile-inner {
   color: #ffffff;
-  background: #1e88e5;
-  box-shadow: 0 0 30px 10px rgba(30, 136, 229, 0.55556),
+  background: #0097a7; /* 深蓝绿色 */
+  box-shadow: 0 0 30px 10px rgba(0, 151, 167, 0.55556),
     inset 0 0 0 1px rgba(255, 255, 255, 0.33333);
   font-size: 30px;
 }
@@ -555,7 +555,9 @@ hr {
 }
 .tile.tile-super .tile-inner {
   color: #ffffff;
-  background: #0d47a1;
+  background: #006064; /* 非常深的蓝绿色 */
+  box-shadow: 0 0 30px 10px rgba(0, 96, 100, 0.6),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.3);
   font-size: 30px;
 }
 @media screen and (max-width: 520px) {
